@@ -12,45 +12,57 @@ class Bootcamp {
         this.level = level
         this.students = students;
     }
+        logstudents(){
+            console.log(this.students);
+        }
+
     registerStudent(studentToRegister) {
         if (!studentToRegister.name || !studentToRegister.email) {
             console.log("Invalid Name or Email");
             return false;
         }
         for (const student of this.students){
-            this.if()
+            console.log('student is', student.name)
+         if (studentToRegister.email == student.email){
+            console.log("Email is already registered");
+            return false;
+            }
         }
-        Else {
-
-        }
-    
-            console.log("This Email Is Already Registered")
-}  
-
+    }  
+}
 
 
 
 testStudent = new Student('Bugs Bunny', 'bugs@bunny.com');
-console.log(testStudent);
+console.log(testStudent); 
+reactBootcamp = new Bootcamp("React", "Advanced", [testStudent]);
+reactBootcamp.registerStudent(testStudent);
+
+
+
+
+
+
+
 if ( testStudent.name === 'Bugs Bunny' && testStudent.email === 'bugs@bunny.com') {
-    console.log('TASK 1: PASS');
+console.log('TASK 1: PASS');
 }
 
 
 reactBootcamp = new Bootcamp("React", "Advanced");
 console.log(reactBootcamp);
 if ( reactBootcamp.name === 'React' && reactBootcamp.level === 'Advanced'
-        && Array.isArray(reactBootcamp.students) && reactBootcamp.students.length === 0) {
-    console.log('TASK 2: PASS');
+    && Array.isArray(reactBootcamp.students) && reactBootcamp.students.length === 0) {
+console.log('TASK 2: PASS');
 }
 
 const runTest = (bootcamp, student) => {
-    const attemptOne = bootcamp.registerStudent(student);
-    const attemptTwo = bootcamp.registerStudent(student);
-    const attemptThree = bootcamp.registerStudent(new Student("Babs Bunny"));
-    if ( attemptOne && !attemptTwo && !attemptThree) {
-        console.log("TASK 3: PASS");
-    }
+const attemptOne = bootcamp.registerStudent(student);
+const attemptTwo = bootcamp.registerStudent(student);
+const attemptThree = bootcamp.registerStudent(new Student("Babs Bunny"));
+if ( attemptOne && !attemptTwo && !attemptThree) {
+    console.log("TASK 3: PASS");
+}
 };
 
 runTest(reactBootcamp, testStudent);
